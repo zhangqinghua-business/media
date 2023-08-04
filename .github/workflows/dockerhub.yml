@@ -38,4 +38,4 @@ jobs:
       - name: Example step using Maven plugin  # https://graalvm.github.io/native-build-tools/latest/maven-plugin.html
         run: |
           cd media-starter
-          mvn -Pnative package
+          mvn -Pnative native:compile
