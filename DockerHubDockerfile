@@ -1,13 +1,8 @@
 # 该镜像需要依赖的基础镜像
 FROM fabric8/java-alpine-openjdk11-jre
 
-# 安装必要的工具（如curl）
+COPY ./ /temp
 
-
-COPY ./ /workplace
-
-RUN ls /workplace
-
-COPY /workplace/media-start/target/media.jar /app
-
-ENTRYPOINT ["java -jar /app/media.jar"]
+RUN ls /temp
+RUN pwd
+RUN ls /
