@@ -19,22 +19,23 @@
     </dependencies>
 
     <build>
+        <finalName>talkai</finalName>
         <plugins>
-            <plugin>
-                <groupId>org.graalvm.buildtools</groupId>
-                <artifactId>native-maven-plugin</artifactId>
-            </plugin>
+            <!--直接打成可运行的jar包-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <image>
-                        <buildpacks>
-                            <buildpack>gcr.io/paketo-buildpacks/graalvm</buildpack>
-                            <buildpack>urn:cnb:builder:paketo-buildpacks/java-native-image</buildpack>
-                        </buildpacks>
-                    </image>
+                    <addResources>true</addResources>
+                    <mainClass>org.zhangqinghua.media.starter.DemoApplication</mainClass>
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

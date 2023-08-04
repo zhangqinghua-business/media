@@ -13,39 +13,11 @@
 
     <groupId>org.zhangqinghua.media</groupId>
     <artifactId>media</artifactId>
+    <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-    </dependencies>
-
-<!--    <modules>-->
-<!--        <module>media-pusher</module>-->
-<!--        <module>media-starter</module>-->
-<!--    </modules>-->
-
-    <build>
-        <finalName>media</finalName>
-        <plugins>
-            <!--直接打成可运行的jar包-->
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <addResources>true</addResources>
-                    <mainClass>org.zhangqinghua.media.starter.DemoApplication</mainClass>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+    <modules>
+        <module>media-pusher</module>
+        <module>media-starter</module>
+    </modules>
 </project>
