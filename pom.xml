@@ -33,12 +33,24 @@
     </modules>
 
     <build>
+        <finalName>media</finalName>
         <plugins>
+            <!--直接打成可运行的jar包-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <addResources>true</addResources>
+                    <mainClass>org.zhangqinghua.media.starter.DemoApplication</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
-
             <!--用于构建原生镜像 e.g. mvn -Pnative native:compile-->
             <plugin>
                 <groupId>org.graalvm.buildtools</groupId>
