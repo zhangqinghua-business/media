@@ -1,11 +1,13 @@
 FROM jthambly/graalvm-mvn:latest AS maven
 
-RUN mvn -v
-RUN java -version
+
 
 COPY ./   /tmp/code
 
 RUN cd /tmp/code && ls
+
+RUN mvn -v
+RUN java -version
 
 RUN cd /tmp/code && mvn clean package -Dmaven.test.skip=true -Dmaven.javadoc.skip=true
 
@@ -15,7 +17,7 @@ RUN cd /tmp/code && mvn clean package -Dmaven.test.skip=true -Dmaven.javadoc.ski
 FROM jthambly/graalvm-mvn:latest
 
 # 将上一个容器的jar文件复制到此容器下面
-COPY --from=maven /tmp/code/media-start/target/*.jar    /app/app.jar
+COPY --from=maven /tmp/code/media-starter/target/*.jar    /app/app.jar
 
 # 调整时区
 RUN rm -f /etc/localtime && ln -sv /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo "Asia/Shanghai" > /etc/timezone
