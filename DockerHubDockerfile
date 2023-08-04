@@ -1,4 +1,10 @@
 # 该镜像需要依赖的基础镜像
 FROM fabric8/java-alpine-openjdk11-jre
 
+COPY ./ /temp
+
+RUN ls /temp
+RUN ls /temp/media-starter
+RUN ls /temp/media-starter/target
+
 COPY ./media-starter/target/media.jar /app
