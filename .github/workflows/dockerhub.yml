@@ -26,7 +26,7 @@ jobs:
         with:
           java-version: '17.0.7'
           distribution: 'graalvm' # See 'Options' for all available distributions
-          github-token: ${{ secrets.GITHUB
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       # 配置Maven缓存
 #      - name: Maven Cache
 #        uses: actions/cache@v2
