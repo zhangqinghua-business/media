@@ -1,0 +1,43 @@
+# 编译打包、生成Docker镜像并推送到DockerHub上
+name: DockerHub
+
+# 触发条件
+on: workflow_dispatch
+
+# 全局环境变量
+env:
+  NAME: media
+  BRANCH: master                                      # 仓库分支
+
+# 步骤流程：
+jobs:
+  release:
+    name: Build Project
+    runs-on: ubuntu-latest
+    outputs:
+      download_url: ${{ steps.release_upload.outputs.browser_download_url }}
+    steps:
+      # 1. 拉取代码
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{env.BRANCH}}
+      # 2. 准备编译环境
+      - uses: graalvm/setup-graalvm@v1
+        with:
+          java-version: '17.0.7'
+          distribution: 'graalvm'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          native-image-job-reports: 'true'
+      # 3. 编译代码
+      - name: Build and run HelloWorld.java
+        run: |
+          echo 'public class HelloWorld { public static void main(String[] args) { System.out.println("Hello, World!"); } }' > HelloWorld.java
+          javac HelloWorld.java
+          native-image HelloWorld
+          ./helloworld
+      # 4. 上传制品
+      - name: Upload binary
+        uses: actions/upload-artifact@v2
+        with:
+          name: helloworld-${{ matrix.os }}
+          path: helloworld*

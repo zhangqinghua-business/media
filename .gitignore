@@ -1,0 +1,31 @@
+# Idea生成的文件
+.mvn
+mvnw
+mvnw.cmd
+.idea
+*.iml
+
+# 苹果系统生成的文件
+*.DS_Store
+*/.DS_Store
+
+# Java编译器生成的文件
+target
+**/target
+**/**/target
+
+# TXLCN框架生成的文件
+.txlcn/
+
+# 日志文件
+*.log
+logs/
+
+# 其它不知道什么东西
+.settings
+*/.settings/
+.classpath
+.project
+/.idea/
+
+
