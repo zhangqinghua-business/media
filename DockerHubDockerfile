@@ -4,6 +4,8 @@ FROM fabric8/java-alpine-openjdk11-jre
 # 安装必要的工具（如curl）
 RUN pwd
 RUN ls
+RUN ls /
+
 COPY media-start/target/media.jar /app
 
 ENTRYPOINT ["java -jar /app/media.jar"]
