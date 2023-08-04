@@ -15,4 +15,4 @@ RUN ls -l /tmp/code
 RUN ls -l
 RUN pwd
 
-RUN mvn clean package -Dmaven.test.skip=true -Dmaven.javadoc.skip=true
+RUN cd /tmp/code && mvn clean package -Dmaven.test.skip=true -Dmaven.javadoc.skip=true
