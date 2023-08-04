@@ -1,8 +1,12 @@
-FROM maven:3.3.9-jdk-8-alpine AS maven
-USER root
+# We use a Docker multi-stage build here in order that we only take the compiled native Spring Boot App from the first build container
+FROM oraclelinux:7
 
-COPY ./   /tmp/code
+# Add Spring Boot Native app spring-boot-graal to Container
+COPY media-starter/target/app app
 
-RUN cd /tmp/code && ls
+RUN ls -l /app
+RUN pwd
+RUN ls
 
-RUN cd /tmp/code && mvn clean package -Dmaven.test.skip=true -Dmaven.javadoc.skip=true
+# Fire up our Spring Boot Native app by default
+CMD [ "sh", "-c", "./app" ]

@@ -19,28 +19,22 @@
     </dependencies>
 
     <build>
-        <finalName>media</finalName>
         <plugins>
-            <!--直接打成可运行的jar包-->
+            <plugin>
+                <groupId>org.graalvm.buildtools</groupId>
+                <artifactId>native-maven-plugin</artifactId>
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <addResources>true</addResources>
-                    <mainClass>org.zhangqinghua.media.starter.DemoApplication</mainClass>
+                    <image>
+                        <buildpacks>
+                            <buildpack>gcr.io/paketo-buildpacks/graalvm</buildpack>
+                            <buildpack>urn:cnb:builder:paketo-buildpacks/java-native-image</buildpack>
+                        </buildpacks>
+                    </image>
                 </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <!--用于构建原生镜像 e.g. mvn -Pnative native:compile-->
-            <plugin>
-                <groupId>org.graalvm.buildtools</groupId>
-                <artifactId>native-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
