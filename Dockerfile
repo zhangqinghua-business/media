@@ -1,6 +1,4 @@
 FROM alpine:3.17.1
 
-# 拉取制品
-COPY target/mygraalvmplanet mygraalvmplanet
-
-ENTRYPOINT ["/mygraalvmplanet"]
+# 安装必要的工具（如curl）
+RUN apk update && apk add --no-cache curl
