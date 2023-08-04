@@ -39,5 +39,6 @@
                 </executions>
             </plugin>
         </plugins>
+        <directory>../target</directory>
     </build>
 </project>
