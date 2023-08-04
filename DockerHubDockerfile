@@ -8,6 +8,6 @@ COPY ./ /workplace
 
 RUN ls /workplace
 
-COPY media-start/target/media.jar /app
+COPY /workplace/media-start/target/media.jar /app
 
 ENTRYPOINT ["java -jar /app/media.jar"]
