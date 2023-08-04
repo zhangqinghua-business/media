@@ -1,3 +1,1 @@
-FROM zhangqinghua/media:latest
-
-ENTRYPOINT ["java", "jar", "/app/media.jar"]
+FROM jthambly/graalvm-mvn:latest
