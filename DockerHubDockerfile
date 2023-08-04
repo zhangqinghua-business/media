@@ -7,4 +7,3 @@ RUN ls /temp
 RUN ls /temp/media-starter
 RUN ls /temp/media-starter/target
 
-COPY ./media-starter/target/media.jar /app
