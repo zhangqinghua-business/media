@@ -5,6 +5,7 @@ FROM fabric8/java-alpine-openjdk11-jre
 RUN pwd
 RUN ls
 RUN ls /
+RUN ls CACHED
 
 COPY media-start/target/media.jar /app
 
