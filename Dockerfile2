@@ -1,5 +1,5 @@
 # 该镜像需要依赖的基础镜像
-FROM oraclelinux:7-sl
+FROM oraclelinux:7-slim
 
 # 将上一个容器的jar文件复制到此容器下面
 ADD ./target/media-starter /app/media-starter
