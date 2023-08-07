@@ -53,7 +53,7 @@ jobs:
         with:
           username: zhangqinghua
           password: 12345678go
-       6. 构建Docker镜像并推送到DockerHub仓库
+      # 6. 构建Docker镜像并推送到DockerHub仓库
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
