@@ -53,12 +53,12 @@ jobs:
         with:
           username: zhangqinghua
           password: 12345678go
-      # 6. 构建Docker镜像并推送到DockerHub仓库
-#      - name: Build and push
-#        id: docker_build
-#        uses: docker/build-push-action@v2
-#        with:
-#          context: ./
-#          file: ./DockerHubDockerfile
-#          push: true
-#          tags: zhangqinghua/media:latest
+       6. 构建Docker镜像并推送到DockerHub仓库
+      - name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: ./Dockerfile2
+          push: true
+          tags: zhangqinghua/media:latest
