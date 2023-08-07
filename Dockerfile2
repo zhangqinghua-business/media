@@ -4,9 +4,6 @@ FROM gcr.io/distroless/base:latest
 # 将上一个容器的jar文件复制到此容器下面
 ADD ./target/media-starter /app/media-starter
 
-# 调整时区
-RUN rm -f /etc/localtime && ln -sv /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo "Asia/Shanghai" > /etc/timezone
-
 EXPOSE      8080
 
 ENTRYPOINT ["app/media-starter"]
